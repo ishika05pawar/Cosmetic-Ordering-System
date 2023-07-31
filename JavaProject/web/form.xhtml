@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+       
+	<title> Create An Account </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<style type="text/css">
+body{
+  font-family: cursive;
+  background-image: url(image/cool-background.png);
+	background-size: cover;
+}
+.reg{
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 800px;
+    padding: 30px 30px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background-color: white;
+
+   
+}
+h1{
+	text-align: center;
+	text-shadow: 2px 2px 5px red;
+}
+.sub{
+    background-color: turquoise;
+	color: black;
+	padding: 14px 20px;	
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 8px;
+	display: inline-block;
+	font-size: 17px;
+	font-weight: bold;
+	width: 100%;
+}
+.sub:hover{
+	background-color:darkcyan;
+	color: whitesmoke;
+}
+.uname,.email,.mnumber,.pass,.cpass{
+    border: none;
+    outline: none;
+    height: 30px;
+    width : 100%;
+    font-size: 15px;
+    background-color: silver;
+    border-radius: 5px;
+    margin-bottom: 10px;    
+}
+span{
+	float: right;
+	color: red;
+	font-size: 20px;
+}
+</style>
+    </h:head>
+    <h:body>
+       <div class="reg">
+		<a href="index.jsf">
+          		<span class="glyphicon glyphicon-remove"></span>
+        	</a>
+	<h1><b> Create New Account </b></h1>
+			<h:form>
+                    <h:inputHidden id="uid" value="#{bean.uid}"></h:inputHidden>
+			<b style="font-size: 22;"> Name : </b> <br/>
+			
+                        
+                        <h:inputText class="uname" id="name" value="#{bean.username}"></h:inputText>
+                        <br/>
+			
+			<b style="font-size: 22;">E-mail : </b> <br/>
+	    	
+                        <h:inputText class="email" id="email" value="#{bean.email}"></h:inputText>
+                <br/>
+
+			<b style="font-size: 22;"> Mobile Number : </b> <br/>
+                        
+                        <h:inputText class="mnumber" id="number" value="#{bean.mobilenumber}"></h:inputText>
+                        <br/>
+
+			<b style="font-size: 22;">PassWord : </b> <br/>
+			
+                        <h:inputSecret id="pass" class="pass" value="#{bean.password}"></h:inputSecret>
+                        <br/> 
+			
+			<b style="font-size: 22;">Confirm PassWord : </b> <br/>
+			
+                        <h:inputSecret id="cls" class="cpass" value="#{bean.cpassword}"></h:inputSecret>
+                        <br/> 
+                        
+                        <b style="font-size: 22;">Address : </b> <br/>
+                        <h:inputText id="add" class="cpass" value="#{bean.address}"></h:inputText><br/>
+                         <b style="font-size: 22;">City : </b> <br/>
+                         <h:inputText id="city" class="cpass" value="#{bean.city}"></h:inputText><br/>
+                         <b style="font-size: 22;">State : </b> <br/>
+                         <h:inputText id="state" class="cpass" value="#{bean.state}"></h:inputText><br/>
+                         <b style="font-size: 22;">Pincode : </b> <br/>
+                         <h:inputText id="pin" class="cpass" value="#{bean.pincode}"></h:inputText><br/>
+                        
+                        <br/> 
+
+
+			<div style="color: red; font-weight: bold;"> 
+				
+			</div>
+
+			
+		    
+                        <h:commandButton class="sub" value="Register" action="#{bean.reginsert()}"></h:commandButton>
+                    <br/> 
+			
+			
+			 
+
+		</h:form>
+
+	</div>
+    </h:body>
+</html>
+

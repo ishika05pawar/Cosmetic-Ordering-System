@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+	
+	<title></title>
+	<style type="text/css">
+		.section3
+		{
+			margin-top: 20px;
+			background-color: cyan;
+			width: 80%;
+			float: right;
+			
+			background-color: lavender;
+		}
+		.section3 .card table th
+		{
+			padding: 10px; 
+			background-color: gray;
+			color: maroon;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		.section3 .card table td
+		{
+			font-size: 18px;
+		}
+		.action
+		{
+			background-color: purple;
+			padding: 5px;
+                        color: white;
+		}
+		.action a
+		{
+			text-decoration: none;
+			color: white;
+		}
+		.section3 .user
+		{
+			font-size: 21px;
+			background-color: maroon; 
+			color: white; 
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		.cat
+		{
+			margin-top: 20px;
+			font-size: 21px;
+			background-color: maroon; 
+			color: white; 
+			padding: 10px;
+			margin-bottom: 20px;
+
+		}
+		.cat-option
+		{
+			margin-top: 20px;
+			font-size: 18px;
+		}
+		input[type = text]
+		{
+			font-size: 17px;
+		}
+		.add
+		{
+			font-size: 18px;
+			background-color: purple;
+			color: white;
+			font-weight: bold;
+			border-radius: 6px;
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 50px;
+		}
+		.user a
+		{
+			text-decoration: none;
+			float: left;
+			color: white;
+		}
+                body{
+			background-color: lavenderblush;
+			margin: 0;
+			padding: 0;
+		}
+		.section1{
+			background-color: purple;
+			width: 20%;
+			height: 1000px; 
+			display: inline-block;
+			float: left;
+			position: fixed;
+		}
+		.logo{
+			color: white;
+			font-size: 30px;
+			text-shadow: 4px 2px 5px red;
+			font-family: cursive;
+			text-align: center;
+		}
+		.links a{
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+			display: block;
+			font-size: 21px;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 15px;
+			background-color: lavenderblush;
+			text-align: center;
+		}
+		.links a:hover{
+			background-color : indianred;
+			color: white;
+			transition: 0.9s ease;
+		}
+		.section2 
+		{
+			float: right;
+			font-size: 20px;
+			background-color: lightyellow;
+			width: 80%;
+			font-weight: bold;
+			font-family: sans-serif;
+			margin-top: 20px;
+		
+		}
+		.section2  p 
+		{
+			float: right;
+			margin-right: 30px;
+			text-decoration: none;
+		}
+		.section2 p a{
+			margin-left: 10px;
+			text-decoration: none;
+		}
+		.section2 p a:hover
+		{
+			color: red;
+		}
+		.logo .web
+		{
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+
+    </h:head>
+    <h:body>
+     <section class="section1">
+		<span class="logo">
+		<p> <a href="index.jsf" class="web"> SKY fashion </a> </p>			
+		</span>
+		<span class="links">
+			<p align="center" style="font-size: 20px"> E-commerce website </p>
+			<a href="dashboard.jsf"> Dashboard </a>
+			<a href="admin_detail.jsf"> Admin </a> 
+			<a href="admin_user.jsf"> User </a>
+			<a href="admin_category.jsf"> Category </a>
+			<a href="admin_product_detail.jsf"> Product </a>
+			<a href="admin_order.jsf"> Order </a>
+			<a href="admin_product_rating.jsf"> Rating </a>
+			<p align="center" style="font-size: 20px"></p>
+		</span>
+	</section>
+	<section class="section2">
+		 <p class="name">   Welcome 
+		     <a href="admin_logout.jsf"> LogOut <i style='font-size:22px' class='fas'> &#xf011; </i> </a> </p>		 
+		     												
+	</section>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"> &uarr; </button>
+
+	
+
+	<section class="section3">
+		
+		<div class="user" align="center"><a href="admin_product_detail.jsf"> Back </a> BRAND DETAILS </div>
+		<div> 
+                    <h:form enctype="multipart/form-data">
+                    <div class="cat" align="center">  ADD NEW BRAND  </div>
+                    <div class="cat-option" align="center">
+						<b> BRAND NAME </b>
+						
+                                                <h:inputText id="bran" value="#{bean.brandname}"></h:inputText>
+						<br/><br/>
+                                                <b> BRAND IMAGE </b>
+                                                <h:inputFile value="#{bean.file}"></h:inputFile><br/>
+                                                <h:commandButton value="ADD" class="add" action="#{bean.inserbrand()}"></h:commandButton>
+						
+                                              
+						
+					</div>
+                    </h:form>
+                    <div class="card" align="center">
+                           
+
+                            <f:view>
+
+
+                                <h:form>
+                                   
+                                    <h:dataTable value="#{bean.showbrand()}" var="item" border="1">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Bid"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.bid}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Brandname"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.brandname}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Brandimage"/>
+                                            </f:facet>
+<!--                                            <h:outputText value="#{item.brandimage}"/>-->
+                                            <img src="/category/resource/brand/#{item.brandimage}" width="200px" height="100px"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </h:form>
+                            </f:view>
+
+
+					
+			</div>
+	    </div>
+	</section>
+	
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+    </h:body>
+</html>
+

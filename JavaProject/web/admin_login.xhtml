@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+       <meta charset="utf-8"/>
+	<title> Log In </title>
+<style type="text/css">
+body{
+	background-color: lavender;
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: cursive;
+}
+
+div{
+	box-sizing: border-box;
+	border-radius: 5px;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%,-50%);
+	width: 320px;
+    height: 450px;
+    padding: 60px 25px;
+    border-style: solid;
+	border-color: black;
+	background-color: white;
+
+}	
+h1{
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+input[type=E-mail],input[type=password]
+{
+	width : 100%;
+	height: 30px;
+ 	font-size: 15px;
+ 	background-color: silver;
+ 	border-radius: 5px;
+ 	border: none;
+ 	outline: none; 
+ 	margin-bottom: 10px; 
+}
+
+input[type=submit]{
+	background-color: turquoise;
+	color: black;
+	padding: 12px 20px;
+	margin: 4px 0px;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 8px;
+	display: inline-block;
+	font-size: 17px;
+	font-weight: bold;
+	width: 100%;
+	margin-bottom: 20px;
+}
+input[type=submit]:hover{
+	background-color: darkcyan;
+	color: whitesmoke;
+}
+
+</style>
+    </h:head>
+    <h:body>
+        <h:form> 
+		<div class="loginbox">
+			<h1 style="text-shadow: 2px 2px 4px red;">
+				Admin LogIn
+			</h1>
+			
+
+			<b style = "font-size: 20;">E-mail :</b> <br/>
+			
+                        <h:inputText id="aemail" value="#{bean.auname}"></h:inputText>
+                        <br/>
+
+			<b style="font-size : 20 ;">Password : </b> <br/>
+			
+                        <h:inputSecret id="apassword" value="#{bean.apassword}"></h:inputSecret>
+                        <br/>
+
+			<p style="color: red; font-weight: bold;"> 
+				
+	        </p> 
+			
+                        <h:commandButton id="albtn" value="Log In" action="#{bean.adminlogin()}"></h:commandButton>
+		</div>		
+        </h:form>
+
+
+
+    </h:body>
+</html>
+

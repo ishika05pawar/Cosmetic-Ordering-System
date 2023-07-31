@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+       <meta charset="utf-8"/>
+	<title></title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<style type="">
+		.section3
+		{
+			margin-top: 20px;
+			background-color: cyan;
+			width: 80%;
+			float: right;
+			background-color: lavender;
+		}
+                button
+		{
+			border-radius: 4px;
+			padding: 20px;
+			width: 20%;
+			margin: 20px;
+			font-weight: bold;
+			font-size: 19px;
+			height: auto;
+			background-color: lavenderblush;
+			border: none;
+			box-shadow: 2px 2px 4px 2px purple;
+
+		}
+		button:hover
+		{
+			border-radius: 4px;
+			padding: 20px;
+			width: 20%;
+			margin: 20px;
+			font-weight: bold;
+			font-size: 19px;
+			height: auto;
+			background-color: lightcyan;
+			border: none;
+			box-shadow: 2px 2px 4px 2px purple;
+		}
+		button a 
+		{
+			text-decoration: none;
+		}
+		
+	</style>
+    </h:head>
+    <h:body>
+          <ui:include src="a.xhtml"/>
+          
+<section class="section3">
+
+		
+		<button class="user_btn"> <a href="admin_user.jsf"> <i class='fas fa-user-alt' style='font-size:36px;float: left;'></i><br/>Users </a> </button> 
+		<button class="product_btn" > <a href="admin_product_detail.jsf"> <i class='fas fa-magic' style='font-size:36px;float:left;'></i><br/> Products </a> </button>
+		<button class="pending_btn"> <a href="admin_pending_order.jsf"><i class='fas fa-arrow-down' style='font-size:36px;float:left;'></i><br/> Pending orders </a> </button>
+		<button class="confirm_btn"> <a href="admin_confirm_order.jsf"> <i class='fas fa-check-circle' style='font-size:36px;float:left;'></i><br/> Confirm orders </a> </button>
+		<button class="category_btn"> <a href="admin_category.jsf"> <i class='fas fa-caret-square-down' style='font-size:36px;float:left'></i><br/> Categories </a></button>
+		<button class="brand_btn"> <a href="admin_brand.jsf"> <i class='fas fa-seedling' style='font-size:36px;float: left;'></i> <br/> Brands </a></button> 
+</section>
+    </h:body>
+</html>
+

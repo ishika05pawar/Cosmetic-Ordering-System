@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+       <meta charset="utf-8"/>
+	<title></title>
+	<style type="text/css">
+		.section3
+		{
+			margin-top: 20px;
+			background-color: cyan;
+			width: 80%;
+			float: right;
+			background-color: lavender;
+		}
+		table
+		{
+			margin-bottom: 20px;
+		}
+		.section3 .card table th
+		{
+			padding: 10px; 
+			background-color: gray;
+			color: maroon;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		.section3 .card table .label
+		{
+			padding: 10px;
+			width: 200px;
+			font-size: 19px;
+			font-weight: bold;
+		}
+		.section3 .card table .input
+		{
+			padding: 10px;
+			width: 400px;
+			font-size: 19px;
+			font-weight: bold;
+		
+		}
+		input[type = submit]
+		{
+			background-color: maroon;
+			color: white;
+			padding: 10px;
+			font-weight: bold;
+			font-size: 20px;
+			width: 100%;
+			cursor: pointer;
+		}
+		input[type = text]
+		{
+			font-size: 15px;
+			width: 90%;
+			padding: 8px;
+		}
+		select
+		{
+			font-size: 15px;
+			width: 95%;
+			padding: 8px;
+		}
+		.product
+		{
+			font-size: 21px;
+			background-color: maroon; 
+			color: white; 
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		.product a
+		{
+			text-decoration: none;
+			float: left;
+			color: white;
+		}
+                body{
+			background-color: lavenderblush;
+			margin: 0;
+			padding: 0;
+		}
+		.section1{
+			background-color: purple;
+			width: 20%;
+			height: 1000px; 
+			display: inline-block;
+			float: left;
+			position: fixed;
+		}
+		.logo{
+			color: white;
+			font-size: 30px;
+			text-shadow: 4px 2px 5px red;
+			font-family: cursive;
+			text-align: center;
+		}
+		.links a{
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+			display: block;
+			font-size: 21px;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 15px;
+			background-color: lavenderblush;
+			text-align: center;
+		}
+		.links a:hover{
+			background-color : indianred;
+			color: white;
+			transition: 0.9s ease;
+		}
+		.section2 
+		{
+			float: right;
+			font-size: 20px;
+			background-color: lightyellow;
+			width: 80%;
+			font-weight: bold;
+			font-family: sans-serif;
+			margin-top: 20px;
+		
+		}
+		.section2  p 
+		{
+			float: right;
+			margin-right: 30px;
+			text-decoration: none;
+		}
+		.section2 p a{
+			margin-left: 10px;
+			text-decoration: none;
+		}
+		.section2 p a:hover
+		{
+			color: red;
+		}
+		.logo .web
+		{
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+
+    </h:head>
+    <h:body>
+      <section class="section1">
+		<span class="logo">
+		<p> <a href="index.jsf" class="web"> SKY fashion </a> </p>			
+		</span>
+		<span class="links">
+			<p align="center" style="font-size: 20px"> E-commerce website </p>
+			<a href="dashboard.jsf"> Dashboard </a>
+			<a href="admin_detail.jsf"> Admin </a> 
+			<a href="admin_user.jsf"> User </a>
+			<a href="admin_category.jsf"> Category </a>
+			<a href="admin_product_detail.jsf"> Product </a>
+			<a href="admin_order.jsf"> Order </a>
+			<a href="admin_product_rating.jsf"> Rating </a>
+			<p align="center" style="font-size: 20px"> </p>
+		</span>
+	</section>
+	<section class="section2">
+		 <p class="name">   Welcome
+		     <a href="admin_logout.jsf"> LogOut <i style='font-size:22px' class='fas'> &#xf011; </i> </a> </p>		 
+		     												
+	</section>
+
+<section class="section3">
+<div class="card">
+	
+			<table border="1" align="center">
+                            <h:form enctype="multipart/form-data">		
+							<div align="center" class="product"> <a href="admin_product_detail.jsf"> Back </a>ADD NEW PRODUCT </div>
+							<tr>
+							   <td class="label">	Category </td>
+                                                                   <td class="input">
+                                                             
+                                                                       <h:selectOneMenu value="#{bean.categoryid}">
+                                                                           <f:selectItems var="x" value="#{bean.getcat()}" itemLabel="#{x.category}" itemValue="#{x.cid}">
+                                                                                                </f:selectItems>
+                                                                                            </h:selectOneMenu>
+								
+                                                           </td>
+													</tr>
+						<tr>
+							<td class="label"> Product Name </td>
+                                                        <td class="input"><p:inputText id="pname" value="#{bean.productname}"></p:inputText> </td>
+						</tr>
+						<tr> 
+							<td class="label"> Brand </td>
+							<td class="input"> 
+                                                            <h:selectOneMenu value="#{bean.brandid}">
+                                                                <f:selectItems var="x" value="#{bean.getAllbrand()}" itemLabel="#{x.brandname}" itemValue="#{x.bid}">
+                                                                                                </f:selectItems>
+                                                                                            </h:selectOneMenu>
+								
+           
+                                                            
+							</td>
+						</tr>
+						<tr>
+							<td class="label"> MRP </td>
+                                                        <td class="input"><h:inputText id="mrp" value="#{bean.mrp}"></h:inputText> </td>
+						</tr>
+						<tr>
+							<td class="label"> Selling Price </td>
+                                                        <td class="input"><h:inputText id="price"  value="#{bean.sellingprice}"></h:inputText></td>
+						</tr>
+						<tr>
+							<td class="label"> Qty </td>
+                                                        <td class="input"><h:inputText id="qty" value="#{bean.qty}"></h:inputText> </td>
+						</tr>
+						<tr>
+							<td class="label"> Product images </td>
+                                                        <td class="input"><h:inputFile value="#{bean.productfile}"></h:inputFile></td>
+						</tr>
+						<tr> 
+							<td class="label"> Product Title </td>
+                                                        <td class="input"><h:inputText id="title" value="#{bean.title}"></h:inputText> </td>
+						</tr>
+						<tr>
+							<td class="label"> Description </td>
+                                                        <td class="input"> <h:inputTextarea id="desc" value="#{bean.description}"></h:inputTextarea></td>
+						</tr>
+						<tr>
+							<td class="label"> Ingredients </td>
+                                                        <td class="input"><h:inputTextarea id="ingredients" value="#{bean.intgredients}"></h:inputTextarea> </td>
+						</tr>
+						<tr>
+							<td class="label"> How to use </td>
+                                                        <td class="input"><h:inputTextarea id="howtouse" value="#{bean.howto}"></h:inputTextarea></td>
+						</tr>
+						
+                                                        <tr> <td colspan="2" align="center"><h:commandButton id="pbtn" value="Save Product" action="#{bean.addproduct()}"></h:commandButton> </td> </tr>
+		</h:form>
+                           
+		</table>
+</div>
+</section>
+    </h:body>
+</html>
+

@@ -1,0 +1,601 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8"/>
+    <title> Product card </title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script type="text/javascript">
+	// for search product//
+	function active() {
+		var sb = document.getElementById('searchbox');
+		if(sb.value == 'Search...')
+		{
+			sb.value = ''
+			sb.placeholder = 'Search...'
+		}
+	}
+	function inactive() {
+		var sb = document.getElementById('searchbox');
+		if(sb.value == 'Search...')
+		{
+			sb.value = ''
+			sb.placeholder = 'Search...'
+		}
+	}
+
+</script>
+<style type="text/css">
+    *{
+        box-sizing: border-box;
+    }
+    /* Float four columns side by side */
+    .column
+    {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+    /* Remove extra left and right margins ,due to padding */
+    .row 
+    {
+        margin: 0 -5px;
+    /*  margin-bottom: 10px;*/
+    }
+    /* Clear floats after the column */
+    .row:after
+    {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive columns */
+    @media screen and (max-width:  700px)
+    {
+        .column {
+            width: 40%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+    /* Style the counter card */
+    .card
+    {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        /*height: 58vh;*/
+        /*height: auto;
+        width: auto;*/
+    }
+    .image
+    {
+        width: 70%;
+        height: auto;
+    }
+    .title
+    {
+        padding: 10px 0;
+        height: 10vh;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 16px;
+    }
+    .addtocard
+    {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: purple;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 17px;
+            margin-bottom: 5px;
+    }
+    .addtocard:hover
+    {
+         opacity: 0.7;
+    }
+    .price s{
+        color: gray;
+        font-size: 15px;
+    }
+    .price{
+        font-size: 16px;
+    }
+    .text
+    {
+        text-align: center;
+        padding: 10px 14px;
+        font-weight: bold;
+        font-size: 20px;
+        background-color:black;
+        color: white;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .slide
+    {
+        background-color: tan;
+        margin:  auto;
+        padding: 10px;
+        width: 80%;
+        box-shadow: 0 4px 4px 0 brown;
+    }
+    .slide img
+    {
+        width: 80%;
+        height: auto;
+        padding: 20px;
+    }
+    .slide p 
+    {
+        font-size: 18px;
+        color: black;
+    }
+    *{
+	box-sizing: border-box;
+}
+	body
+	{
+		font-family: sans-serif;
+		background-image: url(image/cool-background.png);
+		background-size: cover;
+		padding-top: 50px;
+		
+	}
+	.header .sky
+	{
+		float: left;
+		margin-left: 50px;
+		color: black;
+		text-shadow: 4px 2px 5px red;
+		font-size: 30px;
+		font-family: cursive;
+		margin-top: 5px;
+		font-weight: bold;
+
+		animation-name: sky;
+		animation-duration: 5s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
+	@keyframes sky
+	{
+		from{color: black;}
+		to{color: white;}
+	}
+	.header
+	{
+			position: fixed;
+			width : 100%;
+			background: purple;
+			text-align: center;
+			top: 0;
+			border-bottom: 1px dotted lavenderblush; 
+		/*	overflow:hidden;
+			z-index: 10;*/
+	}
+	@media screen and (max-width: 500px){
+		.header  ul{
+			float: none;
+			display: block;
+			text-align: left;
+		}
+	}
+	.header ul
+	{
+		display: inline-flex;
+		float: right;
+		list-style: none;
+	}
+	.header ul li
+	{
+		margin-top: 15px;
+		margin-bottom: 8px ;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.header ul li a
+	{
+		text-decoration: none;
+		color: lavenderblush;
+		font-size: 17px;
+		font-weight: bold;
+	}
+	.header ul li a:hover
+	{
+		color: lightcyan;	
+	}
+ .menu
+ 	{
+ 	 display: none;
+ 	}
+.header ul li:hover .menu 
+ {
+ 	display:block;
+ 	background-color: lavenderblus;
+ 	margin-top: 5px;
+ 	margin-left: -80px;
+ 	position: fixed;
+ }
+ .header ul li:hover .menu ul
+ {
+ 	display: block;
+ 	margin: 5px
+ }
+ .header ul li .menu ul li a
+ {
+ 	color: black;
+ }
+ .header ul li .menu ul li a:hover{
+ 	color: darkmagenta;
+ }
+ .header ul li:hover .menu ul li 
+ {
+ 	width: 150px;
+ 	padding:10px;
+ 	margin: 0px;
+ 	/*border-top: 1px dotted darkred;*/
+ 	border-bottom: 1px dotted darkred;
+ 	color: darkmagenta;
+ 	background: lavender;
+ 	text-align: center;
+ 	box-shadow: 4px 4px 10px purple;
+
+ }
+ .header ul li:hover .menu ul li:last-child
+ {
+ 	border-bottom: none;
+ }
+ .header .search
+ {
+ 	float: right;
+ 	font-size: 16px;
+ 	margin-top: 12px;
+ 	margin-left: 15px;
+ 	margin-right: 15px;
+ }
+ .search button
+{
+	background-color: pink;
+	color: black;
+}
+
+.header ul li .badge{
+  position: absolute;
+/*top: 5px;*/
+  right: 8px;
+ /* padding: 5px 10px; */
+  border-radius: 50%;
+  background-color: darkred;
+  color: white;
+
+}
+
+ .logout
+ 	{
+ 	 display: none;
+ 	}
+.header .name:hover .logout 
+{
+	display:block;
+ 	background-color: lavenderblus;
+ 	margin-top: 5px;
+ 	margin-left: -80px;
+ 	position: fixed;
+}
+.header .name:hover .logout ul 
+{
+	display: block;
+ 	margin: 5px
+}
+.header .name .logout ul li a
+{
+	color: black;
+}
+.header .name .logout ul li a:hover
+{
+		color: darkmagenta;
+}
+.header .name .logout ul li
+{
+	width: 150px;
+ 	padding:10px;
+ 	margin: 0px;
+/* 	border-top: 1px dotted darkred;*/
+ 	border-bottom: 1px dotted darkred;
+ 	color: darkmagenta;
+ 	background: lavender;
+ 	text-align: center;
+ 	box-shadow: 4px 4px 10px purple;
+}
+
+body{
+	/*	margin: 0;
+		padding: 0;
+	*/}
+	.footer 
+	{
+		margin-top :  20px;
+	}
+	.inner-footer
+	{
+		height: 150px;
+		margin: 0;
+		padding: 0;
+		background: black;
+	}
+	.social-links
+	{
+		display: flex;
+	}
+	.social-links ul{
+		padding: 20px;
+		display: flex;
+		width: 300px;
+		height: 30px;
+		margin: auto;
+	}
+	.social-items
+	{
+		display: flex;
+
+	}
+	.social-items a
+	{
+		padding: 10px 20px;
+		font-size: 35px;
+		color: aquamarine;
+		text-decoration: none;
+		transition: all .25s;
+	}
+	.social-items a:hover
+	{
+		color: plum;
+	}
+	.quick-links
+	{
+		display: flex;
+		width: 100%;
+		height: 100px;
+		text-align: center;
+		padding: 50px;
+		justify-content: center;
+
+	}
+	.quick-links ul
+	{
+		display: flex;
+	}
+	.quick-items{
+		list-style: none;
+	}
+	.quick-items a
+	{
+		text-decoration: none;
+		padding: 0px 15px;
+		font-size: 18px;
+		color: white;
+	}
+	.quick-items a:hover
+	{
+		color: plum;
+	}
+	.outer-footer
+	{
+		padding: 5px;
+		text-align: center;
+		color: white;
+		font-size: 18px;
+		background-color: darkgray;
+	}
+	
+
+</style>
+    </h:head>
+    <h:body>
+        <div class="header">
+						<div class="sky"> <!--<img src="image/Free_Sample_By_Wix(1).jpeg">-->  SKY Fashion </div>
+						<ul>
+							<li> <a href="index.jsf"> Home </a> </li>
+							<li> <a href="#"> Categories </a>
+									<div class="menu">
+										<ul>
+									    <li> <a href="makeup.jsf"> Makeup </a> </li> 
+ 							        	<li> <a href="skin.jsf">  Skin  </a> </li> 
+							       		<li> <a href="">  Hair  </a> </li>
+							        	<li> <a href="parfume.php">  Fragrance </a> </li>
+							        	<li> <a href="">  Tools And Appliences </a> </li>
+							      		</ul>									
+									</div>
+							</li>
+							<li> <a href="brand.jsf"> Brands </a> </li>
+							<li> <a href="about.jsf"> About Us </a> </li>
+							
+
+					  	<div class="search">
+					  		<form method="GET" id="searchform"> 
+                				<input type="search" placeholder="" name="search" id="searchbox" value="Search..." autocomplete="off" onmousedown="active();" onmouseup="inactive();"/> 
+                   			<button type="submit" name="Search" value="Search..." onmousedown="active();" onmouseup="inactive();"> <i class="fa fa-search"></i> </button>
+                </form>
+      				</div> 
+
+      						<li>  
+
+      						
+      								<div class="name"> <a href=""><span class="glyphicon glyphicon-user"> </span>ishika </a> 
+      					  			<div class="logout">
+      					  				<ul>
+      					  					<li>
+      					  					<a href ="user_profile.php" name="profile"><i style='font-size:18px' class='far'>&#xf2c2;</i> My Profile </a>	</li>
+      					  					<li>
+      					  					<a href ="wishlist_products.php" name="profile"><i style='font-size:20px' class='far'>&#xf004;</i> WishList </a>	</li>
+      					  					<li>
+      					  			 		<a href ="logout.php"><i style='font-size:18px' class='fas'>&#xf011;</i> LogOut </a> 
+      					  					</li>
+      					  				</ul>
+      					  			</div> 
+      					  		</div>
+      					  
+      					  	<a href="login.jsf"> <span class="glyphicon glyphicon-user"> </span> Account </a>
+      					  		
+													    									
+     							</li>	
+
+
+
+    							
+    							<li>  <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart" style="font-size: 25px; margin-right: 15px; margin-left: 25px;">
+    							</span><sup> <span class="badge"> <?php /*if(isset($count)) {echo mysqli_num_rows($count);}else{*/ echo $count; ?> </span>
+    							</sup> 
+    							
+    								</a>
+
+<!--    						  <li>  <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart" style="font-size: 25px; margin-right: 15px; margin-left: 25px;">
+    							</span>
+    						  <sup> <span class="badge"> <?php echo '0'; ?> </span>
+    							</sup> 
+    							
+    								</a>
+    							<?php } ?>
+    						
+    							
+                                                  </li> -->
+                                                        
+                                                        </li>
+    				</ul>
+    			</div>
+	
+
+      
+      <div class="brand-name"  style="margin-top: 100px;">
+<div style="text-align: center; font-weight: bold; margin-top: 50px; font-size: 25px; color: darkred; "> Must Have International products (<?php echo mysqli_num_rows($res);?>) </div>
+</div>
+
+
+<div class="text" style="margin-top: 40px;"> All Products </div>
+
+
+
+                   <h:form>
+                       <div class="container"> 
+               
+                       <div class="column">
+                        <div class="card">
+
+            
+                            <h:dataTable value="#{bean.showproduct()}" var="item" class="">
+                       <div class="row">
+                                <h:column> <img src="/category/resource/product/#{item.images}" width="200px" height="100px"/>
+<br/>
+                      
+                      
+                            <h:outputText value="#{item.productName}" class="title"/><br/>
+                       
+                           
+                                <h:outputText value="Mrp : "/>
+                           
+                                <h:outputText value="#{item.mrp}" class="price"/><br/>
+                       
+                       
+                        <h:commandButton value="View Detail" class="addtocard"></h:commandButton>
+                          <h:commandButton value="Add To Cart" class="addtocard"></h:commandButton>
+                                 <br/>  
+                        </h:column>
+                     </div>    
+                    </h:dataTable>
+                        </div></div></div>
+            </h:form>
+              
+        
+   
+
+
+
+<!--<div class="container"> 
+<div class="row"> 
+    <?php while($row = mysqli_fetch_array($res)) { ?>
+    <div class="column">
+        <div class="card">
+
+             <a href="wishlist.php" class="wish">
+               <i style='font-size:20px;float: right;margin-top: 0px;margin-left: 0px;color: purple;' class='far' title="Add To wishlist">&#xf004;</i> 
+            </a>
+
+            <a href="product_detail.php?pid=<?php echo $row['pid'];?>"> <img src="image\product\<?php echo $row['images'];?>" class="image" width="10" height="10"> </a>
+            <p class="title"> <?php echo $row['title'] ;?>  </p>
+             <?php if($row['mrp'] != $row['selling_price']) { ?>
+                        <p class="price" name="price"> MRP :<s> <?php echo $row['mrp']; ?> </s> <?php echo $row['selling_price']; ?> </p>
+                    <?php } 
+                    else 
+                    { ?>
+                        <p class="price" name="sprice"> MRP : <?php echo $row['selling_price']; ?> </p>
+        <?php  }  ?>
+ <?php if($row['qty'] < 1 ) { ?>
+        <label class="out_of_stock" name = "outofstock" style="padding: 12px;"> Out Of Stock </label>
+       <?php }
+    else {  ?>
+<form action="manage_cart.php"  method="POST">
+        <button type="submit" class="addtocard" name="addcart" >Add To Cart</button>  
+
+
+
+        <input type="hidden" name="image" value="<img src='image\product\<?php echo $row['images'];?>'">
+        <input type="hidden" name="pid" value="<?php echo $row['pid'];?>">
+        <input type="hidden" name="pname" value="<?php echo $row['product_name'];?>">
+        <input type="hidden" name="price" value="<?php echo $row['selling_price'];?>">
+        <input type="hidden" name="brand" value="<?php echo $row['brand'];?>">
+
+
+</form>
+<?php } ?>
+<a href="product_detail.php"><button type="submit" class="addtocard" name="view"> View Detail </button></a>
+
+        </div>
+    </div>
+    <?php } ?>
+</div>
+</div>-->
+
+ <footer class="footer">
+	<div class="inner-footer">
+		<div class="social-links">
+			<ul>
+				<li class="social-items"><a href="#" class="fa fa-facebook"></a></li>
+				<li class="social-items"><a href=" " class="fa fa-twitter"></a></li>
+				<li class="social-items"><a href="#" class="fa fa-youtube"></a></li>
+				<li class="social-items"><a href="" class="fa fa-instagram"></a></li>
+			</ul>
+		</div>
+
+		<div class="quick-links">
+			<ul>
+				<li class="quick-items"> <a href="about.php"> About Us </a> </li> &nbsp;&nbsp;&nbsp;&nbsp;
+				<li class="quick-items"> <a href="#"> Terms and Conditions </a> </li>&nbsp;&nbsp;&nbsp;&nbsp;
+				<li class="quick-items"> <a href="#"> Services </a> </li>&nbsp;&nbsp;&nbsp;&nbsp;
+				<li class="quick-items"> <a href="#"> Privacy policy </a> </li>&nbsp;&nbsp;&nbsp;&nbsp;
+				<li class="quick-items"> <a href="#"> Cancelation policy </a> </li>&nbsp;&nbsp;&nbsp;&nbsp;
+			</ul>
+		</div>
+	</div>
+
+	<div class="outer-footer">
+		copyright &copy; <?php echo date("Y") ?>  All Rights Reserved
+	</div>
+	
+</footer>
+    </h:body>
+</html>
+

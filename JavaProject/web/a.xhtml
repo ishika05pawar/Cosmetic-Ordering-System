@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+       <meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href=""/>
+	<title> Admin home page </title>
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<link rel="stylesheet" type="text/css" href="admin.css"/>
+	<style type="">
+		body{
+			background-color: lavenderblush;
+			margin: 0;
+			padding: 0;
+		}
+		.section1{
+			background-color: purple;
+			width: 20%;
+			height: 1000px; 
+			display: inline-block;
+			float: left;
+			position: fixed;
+		}
+		.logo{
+			color: white;
+			font-size: 30px;
+			text-shadow: 4px 2px 5px red;
+			font-family: cursive;
+			text-align: center;
+		}
+		.links a{
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+			display: block;
+			font-size: 21px;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 15px;
+			background-color: lavenderblush;
+			text-align: center;
+		}
+		.links a:hover{
+			background-color : indianred;
+			color: white;
+			transition: 0.9s ease;
+		}
+		.section2 
+		{
+			float: right;
+			font-size: 20px;
+			background-color: lightyellow;
+			width: 80%;
+			font-weight: bold;
+			font-family: sans-serif;
+			margin-top: 20px;
+		
+		}
+		.section2  p 
+		{
+			float: right;
+			margin-right: 30px;
+			text-decoration: none;
+		}
+		.section2 p a{
+			margin-left: 10px;
+			text-decoration: none;
+		}
+		.section2 p a:hover
+		{
+			color: red;
+		}
+		.logo .web
+		{
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+    </h:head>
+    <h:body>
+       <section class="section1">
+		<span class="logo">
+		<p> <a href="index.jsf" class="web"> SKY FASHION</a> </p>			
+		</span>
+		<span class="links">
+			<p align="center" style="font-size: 20px"> E-commerce website </p>
+			<a href="dashboard.jsf"> Dashboard </a>
+			<a href="admin_detail.jsf"> Admin </a> 
+			<a href="admin_user.jsf"> User </a>
+			<a href="admin_category.jsf"> Category </a>
+			<a href="admin_product_detail.jsf">Product</a>
+                        <a href="admin_order.jsf"> Order </a>
+			<a href="admin_product_rating.jsf"> Rating </a>
+			<p align="center" style="font-size: 20px"></p>
+		</span>
+	</section>
+	<section class="section2">
+		 <p class="name">   Welcome 
+		     <a href="admin_logout.jsf"> LogOut <i style='font-size:22px' class='fas'> &#xf011; </i> </a> </p>		 
+		     												
+	</section>
+
+    </h:body>
+</html>
+
